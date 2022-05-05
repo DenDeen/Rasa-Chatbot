@@ -1,0 +1,10 @@
+[
+  {
+    "name": "restaurant",
+    "pattern": "(\\bDonath\\b|\\bBerlin\\ Burrito\\ Company\\b|\\bI\\ due\\ forni\\b|\\bLụa\\ Restaurant\\b|\\bPfefferberg\\b|\\bMarubi\\ Ramen\\b|\\bGong\\ Gan\\b)"
+  },
+  {
+    "name": "hotel",
+    "pattern": "(\\bHilton\\b|\\bB\\&B\\b|\\bBerlin\\ Wall\\ Hostel\\b|\\bCity\\ Hotel\\b|\\bJugendherberge\\b|\\bBerlin\\ Hotel\\b)"
+  }
+]
