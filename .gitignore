@@ -1,2 +1,4 @@
 
 rasa/.rasa/cache/
+
+rasa/actions/__pycache__/
