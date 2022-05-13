@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-attribute",
+      "2": "I-attribute",
+      "3": "L-attribute",
+      "4": "U-attribute",
+      "5": "B-character",
+      "6": "I-character",
+      "7": "L-character",
+      "8": "U-character",
+      "9": "B-place",
+      "10": "I-place",
+      "11": "L-place",
+      "12": "U-place",
+      "13": "B-planet",
+      "14": "I-planet",
+      "15": "L-planet",
+      "16": "U-planet",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-attribute": 1,
+      "I-attribute": 2,
+      "L-attribute": 3,
+      "U-attribute": 4,
+      "B-character": 5,
+      "I-character": 6,
+      "L-character": 7,
+      "U-character": 8,
+      "B-place": 9,
+      "I-place": 10,
+      "L-place": 11,
+      "U-place": 12,
+      "B-planet": 13,
+      "I-planet": 14,
+      "L-planet": 15,
+      "U-planet": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

@@ -4,15 +4,28 @@ rules:
     steps:
       - intent: greet
       - action: utter_greet
+
   - rule: goodbye
     steps:
       - intent: goodbye
       - action: utter_goodbye
-  - rule: query knowledge base
+
+  - rule: tell the time
     steps:
-      - intent: query_knowledge_base
-      - action: action_query_knowledge_base
-  - rule: bot challenge
+      - intent: inquire_time
+      - action: action_tell_time
+
+  - rule: give character info
     steps:
-      - intent: bot_challenge
-      - action: utter_iamabot
+      - intent: query_character
+      - action: action_query_character
+
+  - rule: give planet info
+    steps:
+      - intent: query_planet
+      - action: action_query_planet
+
+  - rule: give character attribute
+    steps:
+      - intent: query_character_attribute
+      - action: action_query_character_attribute

@@ -3,81 +3,67 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - query_knowledge_base
-  - bot_challenge
+  - inquire_time
+  - query_character
+  - query_planet
+  - query_character_attribute
 
 entities:
-  - object_type
-  - mention
+  - place
+  - character
+  - planet
+  - species
   - attribute
-  - hotel
-  - restaurant
-  - cuisine
-  - city
 
 slots:
-  object_type:
+  location:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: place
+  character:
     type: text
     influence_conversation: false
     mappings:
-    - type: from_entity
-      entity: object_type
-  mention:
+      - type: from_entity
+        entity: character
+  planet:
     type: text
     influence_conversation: false
     mappings:
-    - type: from_entity
-      entity: mention
+      - type: from_entity
+        entity: planet
+  species:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: species
   attribute:
     type: text
-    influence_conversation: false
+    influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: attribute
-  hotel:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: hotel
-  restaurant:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: restaurant
-  city:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: city
-  cuisine:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: cuisine
+      - type: from_entity
+        entity: attribute
 
 responses:
   utter_greet:
   - text: "Hey!"
   - text: "Hello! How can I help you?"
+  - text: "Hi, how are you? What can I do for you?"
 
   utter_goodbye:
   - text: "Bye"
+  - text: "Thanks for stopping by. See ya!"
   - text: "Goodbye. See you soon."
 
   utter_ask_rephrase:
   - text: "Sorry, I'm not sure I understand. Can you rephrase?"
   - text: "Can you please rephrase? I did not got that."
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
 actions:
-  - action_query_knowledge_base
-
-session_config:
-  session_expiration_time: 60  # value in minutes
-  carry_over_slots_to_new_session: true
+  - action_tell_time
+  - action_query_character
+  - action_query_planet
+  - action_query_character_attribute

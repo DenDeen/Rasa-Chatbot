@@ -1,8 +1,24 @@
 version: "3.1"
 stories:
-  - story: greet and then query knowledge base
+
+  - story: greet
     steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: query_knowledge_base
-    - action: action_query_knowledge_base
+      - user: |
+          hi!
+        intent: greet
+      - action: utter_greet
+
+  - story: query character
+    steps:
+      - intent: query_character
+      - action: action_query_character
+
+  - story: query planet
+    steps:
+      - intent: query_planet
+      - action: action_query_planet
+
+  - story: query character attribute
+    steps:
+      - intent: query_character_attribute
+      - action: action_query_character_attribute
