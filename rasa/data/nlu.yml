@@ -32,8 +32,9 @@ nlu:
   - intent: query_character
     examples: |
       - who is [Chewbacca](character)?
+      - who is [Yoda](character)?
       - what do you know about [anakin skywalker](character)?
-      - what do you know about the character [anakin skywalker](character)?
+      - what do you know about the character [Obiwan Kenobi](character)?
       - what is [R2-D2](character)
 
   - intent: query_planet
@@ -51,6 +52,7 @@ nlu:
       - where does [greedo](character) come from
       - how tall is [R5-D4](character)
       - what [species](attribute) is [Yoda](character)?
+      - what [planet](attribute) does [obiwan kenobi](character) come from?  
 
   - lookup: place
     examples: |
@@ -132,6 +134,7 @@ nlu:
       - hair color
       - height
       - homeworld
+      - planet
       - weight
       - name
       - skin color

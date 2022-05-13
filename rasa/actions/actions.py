@@ -6,8 +6,6 @@ from typing import Any, Text, Dict, List
 
 import arrow
 
-import numpy as np
-import pandas as pd
 from py2neo import Node,Relationship,Graph,Path,Subgraph
 from py2neo import NodeMatcher, RelationshipMatcher
 
@@ -25,6 +23,7 @@ attribute_db = {
     'eye color': 'eye_color',
     'height': 'height',
     'homeworld': 'homeworld',
+    'planet': 'homeworld',
     'weight': 'mass',
     'name': 'name',
     'skin color': 'skin_color',
@@ -140,8 +139,23 @@ class ActionQueryCharacterAttribute(Action):
         current_attribute = next(tracker.get_latest_entity_values("attribute"), None)
 
         attribute_string = attribute_db.get(current_attribute, None)
+
         if not attribute_string:
-            msg = f"I didn't recognise {current_attribute}. Maybe you spelled it wrong. We will be able to match it better in the future."
+            msg = f"I didn't recognise the attribute {current_attribute}. Maybe you spelled it wrong. We will be able to match it better in the future."
+            dispatcher.utter_message(text=msg)
+            return []
+
+        graph = Graph(neo4j_url,  auth=(user, pwd))
+        node_matcher = NodeMatcher(graph)
+        node = node_matcher.match("Characters").where(f"toLower(_.name) = toLower('{current_character}')").first()
+
+        if not node:
+            msg = f"I didn't recognise the character {current_character}. Maybe you spelled it wrong. We will be able to match it better in the future."
+            dispatcher.utter_message(text=msg)
+            return []
+
+        if node:
+            msg = f"The {current_attribute} of {current_character} is {node[attribute_string]}."
             dispatcher.utter_message(text=msg)
             return []
 
